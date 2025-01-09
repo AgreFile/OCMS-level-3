@@ -1,0 +1,13 @@
+v1.0.1: First version of User
+v1.0.2: 
+  - Create a join table for Users and Chatrooms
+  - create_users_table.php
+v1.0.3:
+  - Added columns "username" and "password"
+  - create_users_table.php
+v1.0.4:
+  - Added column "token" for JWT tokens
+  - create_users_table.php
+v1.0.5:
+  - Change join table schema name to user_chat_room
+  - create_users_table.php
