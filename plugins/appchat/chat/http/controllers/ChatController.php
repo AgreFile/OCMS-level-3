@@ -86,6 +86,7 @@ class ChatController extends Controller
 
         $ChatroomMessages = ChatRoom::where("id", $chatroom_id)->first()->messages()->paginate(10, $page);
 
+        // REVIEW - reakcie by mali byť súčasťou daného message objektu, nemal by to byť oddelený array, skús to vyriešiť cez message to reaction relation, tak ako to robíš aj v ReactToAMessage nižšie
         $reactions = [];
 
         foreach ($ChatroomMessages as $message) {

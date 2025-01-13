@@ -11,3 +11,4 @@ v1.0.4:
 v1.0.5:
   - Change join table schema name to user_chat_room
   - create_users_table.php
+# Nesprávne rozumieš tomu ako fungujú migrácie, pozri REVIEW.md

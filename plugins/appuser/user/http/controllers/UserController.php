@@ -39,6 +39,7 @@ class UserController extends Controller
             throw new Exception("Incorrect password",400);
         }
 
+        // REVIEW - Toto je tu 2 krát zbytočne
         $UserQuery = User::where("username", input("username"))->first();
 
         $JwtToken = JwtService::CreateNewJwtToken($UserQuery->id);
@@ -62,6 +63,7 @@ class UserController extends Controller
     }
 
     public function Users(){
+        // REVIEW - Tip - Tu nepotrebuješ response()->json(), collection() by mala vracať json
         return response()->json(UserResource::collection(User::all()),200);
     }
 }

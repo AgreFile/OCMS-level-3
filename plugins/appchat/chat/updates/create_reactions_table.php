@@ -34,6 +34,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        // REVIEW - Na toto by mala existovať samostatná migrácia
         Schema::create('reaction_message', function(Blueprint $table){
             $table->integer("reaction_id")->unsigned();
             $table->integer("message_id")->unsigned();
