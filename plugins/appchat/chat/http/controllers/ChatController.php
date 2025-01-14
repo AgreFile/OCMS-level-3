@@ -86,16 +86,13 @@ class ChatController extends Controller
 
         $ChatroomMessages = ChatRoom::where("id", $chatroom_id)->first()->messages()->paginate(10, $page);
 
-        // REVIEW - reakcie by mali byť súčasťou daného message objektu, nemal by to byť oddelený array, skús to vyriešiť cez message to reaction relation, tak ako to robíš aj v ReactToAMessage nižšie
-        $reactions = [];
-
         foreach ($ChatroomMessages as $message) {
             foreach (DB::table("reaction_message")->where("message_id", $message->id)->get() as $reaction) {
-                $reactions[] = Reaction::find($reaction->reaction_id);
+                $message["reactions"] = Reaction::find($reaction->reaction_id);
             }
         }
 
-        return response()->json(["messages" => $ChatroomMessages, "reactions" => $reactions], 200);
+        return response()->json(["messages" => $ChatroomMessages], 200);
     }
 
     public function ChangeChatRoomName()
@@ -126,11 +123,8 @@ class ChatController extends Controller
             throw new Exception("invalid messagee", 400);
         }
 
-        // $reactionsToTheMessage = DB::table("reaction_message")->where("message_id", input("message_id"))->get();
         $reactionsToTheMessage = $message->reactions()->get();
         
-        // return response($message->reactions()->get());
-
         if ($reactionsToTheMessage->isNotEmpty()) {
             foreach ($reactionsToTheMessage as $thisReaction) {
                 if ($thisReaction->user_id == JwtService::GetUserIdFromCookie() || $thisReaction->emoji_id == input("emoji_id")) {

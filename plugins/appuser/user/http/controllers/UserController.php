@@ -39,9 +39,6 @@ class UserController extends Controller
             throw new Exception("Incorrect password",400);
         }
 
-        // REVIEW - Toto je tu 2 krát zbytočne
-        $UserQuery = User::where("username", input("username"))->first();
-
         $JwtToken = JwtService::CreateNewJwtToken($UserQuery->id);
 
         $response = Response::make();
