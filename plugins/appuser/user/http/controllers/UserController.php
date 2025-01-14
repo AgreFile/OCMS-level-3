@@ -60,7 +60,6 @@ class UserController extends Controller
     }
 
     public function Users(){
-        // REVIEW - Tip - Tu nepotrebuješ response()->json(), collection() by mala vracať json
-        return response()->json(UserResource::collection(User::all()),200);
+        return UserResource::collection(User::all());
     }
 }

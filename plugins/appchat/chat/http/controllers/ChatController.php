@@ -90,6 +90,7 @@ class ChatController extends Controller
             foreach (DB::table("reaction_message")->where("message_id", $message->id)->get() as $reaction) {
                 $message["reactions"] = Reaction::find($reaction->reaction_id);
             }
+            $message->file_attacment;
         }
 
         return response()->json(["messages" => $ChatroomMessages], 200);
