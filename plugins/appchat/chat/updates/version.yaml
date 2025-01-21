@@ -1,27 +1,21 @@
 v1.0.1: First version of Chat
 v1.0.2: 
   - Created model ChatRoom and Message
-  # - create_messages_table.php PRECO KED TO MAM UNCOMMENTNUTE TAK NEJDE PRIDAT FOREIGN KEY??? JA TO NEZVLADAM
-  - create_chat_rooms_table.php
+  - V102_create_messages_table.php
+  - V102_create_chat_rooms_table.php
 v1.0.3:
   - Create join table for user and chat room
-  - create_chat_rooms_table.php
+  - V103_create_join_table_for_users_and_chatrooms.php
 v1.0.4:
-  - Delete timestamps from join table
-  - create_chat_rooms_table.php
-v1.0.5:
   - Create foreign ids for chatroom and user
-  - create_messages_table.php
-v1.0.6:
+  - V104_foreign_ids_user_and_chat_for_messages.php
+v1.0.5:
   - Create room_name column
-  - create_chat_rooms_table.php
-v1.0.7:
+  - V105_create_room_name_column.php
+v1.0.6:
   - Created Emoji table
-  - create_emoji_table.php
-v1.0.8:
-  - New model reaction
-  - Created Reactions table and a join table for the reaction and the message
-  - create_reactions_table.php
-v1.0.9:
-  - Deleted column "reaction" and added "repyling_to_message_id"
-  - create_messages_table.php
+  - V106_create_emoji_table.php
+v1.0.7:
+  - Create reaction table and a join table between messages and reactions
+  - V107_create_reactions_table.php
+  - V107_create_reactions_message_join_table.php
